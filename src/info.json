@@ -4,7 +4,6 @@
     "category": "tts",
     "name": "ElevenLabs TTS",
     "summary": "ElevenLabs text-to-speech service with high-quality voices",
-    "icon": "120",
     "author": "cdpath",
     "homepage": "https://github.com/cdpath/bob-plugin-elevenlabs",
     "appcast": "https://raw.githubusercontent.com/cdpath/bob-plugin-elevenlabs/main/appcast.json",
