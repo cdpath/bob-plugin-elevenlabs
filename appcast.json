@@ -2,6 +2,14 @@
     "identifier": "com.cdpath.bob-plugin-elevenlabs",
     "versions": [
         {
+            "version": "0.1.5",
+            "desc": "Release version 0.1.5",
+            "sha256": "will be updated by GitHub Actions",
+            "url": "https://github.com/cdpath/bob-plugin-elevenlabs/releases/download/v0.1.5/bob-plugin-elevenlabs.bobplugin",
+            "minBobVersion": "0.5.0",
+            "timestamp": 1742056738631
+        },
+        {
             "version": "0.1.4",
             "desc": "Release version 0.1.4",
             "sha256": "will be updated by GitHub Actions",
