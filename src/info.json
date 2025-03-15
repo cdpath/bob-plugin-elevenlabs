@@ -1,9 +1,10 @@
 {
     "identifier": "com.cdpath.bob-plugin-elevenlabs",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "category": "tts",
     "name": "ElevenLabs TTS",
     "summary": "ElevenLabs text-to-speech service with high-quality voices",
+    "icon": "120",
     "author": "cdpath",
     "homepage": "https://github.com/cdpath/bob-plugin-elevenlabs",
     "appcast": "https://raw.githubusercontent.com/cdpath/bob-plugin-elevenlabs/main/appcast.json",

@@ -2,11 +2,20 @@
     "identifier": "com.cdpath.bob-plugin-elevenlabs",
     "versions": [
         {
+            "version": "0.1.1",
+            "desc": "Add API key validation",
+            "sha256": "will be updated by GitHub Actions",
+            "url": "https://github.com/cdpath/bob-plugin-elevenlabs/releases/download/v0.1.1/bob-plugin-elevenlabs.bobplugin",
+            "minBobVersion": "0.5.0",
+            "timestamp": 1711471200000
+        },
+        {
             "version": "0.1.0",
             "desc": "Initial release",
             "sha256": "will be updated by GitHub Actions",
             "url": "https://github.com/cdpath/bob-plugin-elevenlabs/releases/download/v0.1.0/bob-plugin-elevenlabs.bobplugin",
-            "minBobVersion": "0.5.0"
+            "minBobVersion": "0.5.0",
+            "timestamp": 1711384800000
         }
     ]
 } 
