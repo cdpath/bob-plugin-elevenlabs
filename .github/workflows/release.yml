@@ -24,14 +24,18 @@ jobs:
       - name: Update Version Numbers
         run: |
           VERSION=${GITHUB_REF#refs/tags/v}
-          git fetch origin main
-          git checkout main
+          # Try to determine the default branch
+          DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+          echo "Default branch is: $DEFAULT_BRANCH"
+          
+          git fetch origin $DEFAULT_BRANCH
+          git checkout $DEFAULT_BRANCH
           node scripts/bump-version.js $VERSION "Release version $VERSION"
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add src/info.json appcast.json
           git commit -m "Bump version to $VERSION"
-          git push origin main
+          git push origin $DEFAULT_BRANCH
 
       - name: Create Release Directory
         run: |
