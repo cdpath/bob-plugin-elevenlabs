@@ -4,6 +4,14 @@
         {
             "version": "0.1.9",
             "desc": "Release version 0.1.9",
+            "sha256": "c888f59aed16f3f4c63452afdfd52c5c414262e6f0ce37c8b9aab8be701658b1",
+            "url": "https://github.com/cdpath/bob-plugin-elevenlabs/releases/download/v0.1.9/bob-plugin-elevenlabs.bobplugin",
+            "minBobVersion": "0.5.0",
+            "timestamp": 1742057904666
+        },
+        {
+            "version": "0.1.9",
+            "desc": "Release version 0.1.9",
             "sha256": "a63d6d3bb48a077f23d96049cf7563fd73025ad96fc11cf35dedbfe57d680367",
             "url": "https://github.com/cdpath/bob-plugin-elevenlabs/releases/download/v0.1.9/bob-plugin-elevenlabs.bobplugin",
             "minBobVersion": "0.5.0",
