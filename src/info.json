@@ -6,7 +6,7 @@
     "summary": "ElevenLabs text-to-speech service with high-quality voices",
     "author": "cdpath",
     "homepage": "https://github.com/cdpath/bob-plugin-elevenlabs",
-    "appcast": "https://raw.githubusercontent.com/cdpath/bob-plugin-elevenlabs/main/appcast.json",
+    "appcast": "https://raw.githubusercontent.com/cdpath/bob-plugin-elevenlabs/master/appcast.json",
     "minBobVersion": "0.5.0",
     "options": [
         {
