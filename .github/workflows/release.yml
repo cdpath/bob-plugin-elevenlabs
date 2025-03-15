@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -22,12 +24,14 @@ jobs:
       - name: Update Version Numbers
         run: |
           VERSION=${GITHUB_REF#refs/tags/v}
+          git fetch origin main
+          git checkout main
           node scripts/bump-version.js $VERSION "Release version $VERSION"
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add src/info.json appcast.json
           git commit -m "Bump version to $VERSION"
-          git push
+          git push origin main
 
       - name: Create Release Directory
         run: |
