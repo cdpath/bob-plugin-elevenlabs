@@ -1,0 +1,33 @@
+name: Release Bob Plugin
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Create Release Directory
+        run: |
+          mkdir -p release
+          cp -r src/* release/
+          cd release && zip -r ../bob-plugin-elevenlabs.bobplugin *
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: bob-plugin-elevenlabs.bobplugin
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 

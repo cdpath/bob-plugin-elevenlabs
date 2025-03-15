@@ -1,0 +1,66 @@
+{
+    "identifier": "com.cdpath.bob-plugin-elevenlabs",
+    "version": "0.1.0",
+    "category": "tts",
+    "name": "ElevenLabs TTS",
+    "summary": "ElevenLabs text-to-speech service with high-quality voices",
+    "author": "cdpath",
+    "homepage": "https://github.com/cdpath/bob-plugin-elevenlabs",
+    "appcast": "https://raw.githubusercontent.com/cdpath/bob-plugin-elevenlabs/main/appcast.json",
+    "minBobVersion": "0.5.0",
+    "options": [
+        {
+            "identifier": "apiKey",
+            "type": "text",
+            "title": "API Key",
+            "defaultValue": "",
+            "desc": "Your ElevenLabs API key. Get it from https://elevenlabs.io"
+        },
+        {
+            "identifier": "model",
+            "type": "menu",
+            "title": "Model",
+            "defaultValue": "eleven_multilingual_v2",
+            "menuValues": [
+                {
+                    "title": "Eleven Multilingual v2 (High Quality)",
+                    "value": "eleven_multilingual_v2"
+                },
+                {
+                    "title": "Eleven Flash v2.5 (Fast)",
+                    "value": "eleven_monolingual_v1"
+                }
+            ],
+            "desc": "Select the TTS model to use"
+        },
+        {
+            "identifier": "voice",
+            "type": "menu",
+            "title": "Voice",
+            "defaultValue": "21m00Tcm4TlvDq8ikWAM",
+            "menuValues": [
+                {
+                    "title": "Rachel (English, Female)",
+                    "value": "21m00Tcm4TlvDq8ikWAM"
+                },
+                {
+                    "title": "Domi (English, Female)",
+                    "value": "AZnzlk1XvdvUeBnXmlld"
+                },
+                {
+                    "title": "Bella (English, Female)",
+                    "value": "EXAVITQu4vr4xnSDxMaL"
+                },
+                {
+                    "title": "Antoni (English, Male)",
+                    "value": "ErXwobaYiN019PkySvjV"
+                },
+                {
+                    "title": "Josh (English, Male)",
+                    "value": "TxGEqnHWrfWFTfGW9XjX"
+                }
+            ],
+            "desc": "Select the voice to use"
+        }
+    ]
+} 

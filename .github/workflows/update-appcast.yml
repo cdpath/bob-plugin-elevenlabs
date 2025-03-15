@@ -1,0 +1,44 @@
+name: Update Appcast
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-appcast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          
+      - name: Download release asset
+        run: |
+          curl -L -o bob-plugin-elevenlabs.bobplugin ${{ github.event.release.assets[0].browser_download_url }}
+          
+      - name: Calculate SHA256
+        id: sha256
+        run: |
+          echo "sha256=$(shasum -a 256 bob-plugin-elevenlabs.bobplugin | cut -d ' ' -f 1)" >> $GITHUB_OUTPUT
+          
+      - name: Update appcast.json
+        run: |
+          version="${{ github.event.release.tag_name }}"
+          version="${version#v}"  # Remove 'v' prefix
+          download_url="${{ github.event.release.assets[0].browser_download_url }}"
+          sha256="${{ steps.sha256.outputs.sha256 }}"
+          
+          # Update appcast.json
+          jq --arg version "$version" \
+             --arg url "$download_url" \
+             --arg sha256 "$sha256" \
+             '.versions[0].version = $version | .versions[0].url = $url | .versions[0].sha256 = $sha256' \
+             appcast.json > appcast.json.tmp && mv appcast.json.tmp appcast.json
+          
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add appcast.json
+          git commit -m "Update appcast.json for version ${{ github.event.release.tag_name }}"
+          git push 
