@@ -21,42 +21,30 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Update Version Numbers
-        run: |
-          VERSION=${GITHUB_REF#refs/tags/v}
-          # Try to determine the default branch
-          DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
-          echo "Default branch is: $DEFAULT_BRANCH"
-          
-          git fetch origin $DEFAULT_BRANCH
-          git checkout $DEFAULT_BRANCH
-          
-          # Update version without SHA256 first
-          node scripts/bump-version.js $VERSION "Release version $VERSION"
-          
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add src/info.json appcast.json
-          git commit -m "Bump version to $VERSION"
-          git push origin $DEFAULT_BRANCH
-
       - name: Create Release Directory
         run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          # Update info.json version first
+          node scripts/bump-version.js $VERSION "Release version $VERSION"
+          
+          # Create plugin file
           mkdir -p release
           cp -r src/* release/
           cd release && zip -r ../bob-plugin-elevenlabs.bobplugin *
-
-      - name: Calculate SHA256 and Update Appcast
-        id: sha256
-        run: |
-          HASH=$(shasum -a 256 bob-plugin-elevenlabs.bobplugin | cut -d ' ' -f 1)
-          echo "hash=$HASH" >> $GITHUB_OUTPUT
+          cd ..
           
-          VERSION=${GITHUB_REF#refs/tags/v}
+          # Calculate SHA256 and update appcast.json
+          HASH=$(shasum -a 256 bob-plugin-elevenlabs.bobplugin | cut -d ' ' -f 1)
           node scripts/update-sha256.js $VERSION "$HASH"
           
-          git add appcast.json
-          git commit -m "Update SHA256 for version $VERSION"
+          # Commit all changes
+          DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+          git fetch origin $DEFAULT_BRANCH
+          git checkout $DEFAULT_BRANCH
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add src/info.json appcast.json
+          git commit -m "Release version $VERSION"
           git push origin $DEFAULT_BRANCH
 
       - name: Create Release
