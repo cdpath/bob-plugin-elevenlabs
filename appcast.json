@@ -4,7 +4,7 @@
         {
             "version": "0.1.8",
             "desc": "Release version 0.1.8",
-            "sha256": "will be updated after plugin creation",
+            "sha256": "14a4f4bce793f8ee183554961c980d7856fb6bea0ea69d028daac9e792ab6ec3",
             "url": "https://github.com/cdpath/bob-plugin-elevenlabs/releases/download/v0.1.8/bob-plugin-elevenlabs.bobplugin",
             "minBobVersion": "0.5.0",
             "timestamp": 1742057431518
