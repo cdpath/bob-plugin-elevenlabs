@@ -23,12 +23,32 @@
             "defaultValue": "eleven_multilingual_v2",
             "menuValues": [
                 {
-                    "title": "Eleven Multilingual v2 (High Quality)",
+                    "title": "Eleven Multilingual v2 (Our most life-like, emotionally rich mode in 29 languages. Best for voice overs, audiobooks, post-production, or any other content creation needs.)",
                     "value": "eleven_multilingual_v2"
                 },
                 {
-                    "title": "Eleven Flash v2.5 (Fast)",
+                    "title": "Eleven Flash v2.5 (Our ultra low latency model in 32 languages. Ideal for conversational use cases.)",
+                    "value": "eleven_flash_v2_5"
+                },
+                {
+                    "title": "Eleven Turbo v2.5 (Our high quality, low latency model in 32 languages. Best for developer use cases where speed matters and you need non-English languages.)",
+                    "value": "eleven_turbo_v2_5"
+                },
+                {
+                    "title": "Eleven Turbo v2 (Our English-only, low latency model. Best for developer use cases where speed matters and you only need English. Performance is on par with Turbo v2.5.)",
+                    "value": "eleven_turbo_v2"
+                },
+                {
+                    "title": "Eleven Flash v2 (Our ultra low latency model in english. Ideal for conversational use cases.)",
+                    "value": "eleven_flash_v2"
+                },
+                {
+                    "title": "Eleven English v1 (Our first ever text to speech model. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).)",
                     "value": "eleven_monolingual_v1"
+                },
+                {
+                    "title": "Eleven Multilingual v1 (Our first Multilingual model, capability of generating speech in 10 languages. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).)",
+                    "value": "eleven_multilingual_v1"
                 }
             ],
             "desc": "Select the TTS model to use"
@@ -40,24 +60,88 @@
             "defaultValue": "21m00Tcm4TlvDq8ikWAM",
             "menuValues": [
                 {
-                    "title": "Rachel (English, Female)",
-                    "value": "21m00Tcm4TlvDq8ikWAM"
+                    "title": "Aria (female, American, expressive)",
+                    "value": "9BWtsMINqrJLrRacOk9x"
                 },
                 {
-                    "title": "Domi (English, Female)",
-                    "value": "AZnzlk1XvdvUeBnXmlld"
+                    "title": "Roger (male, American, confident)",
+                    "value": "CwhRBWXzGAHq8TQ4Fs17"
                 },
                 {
-                    "title": "Bella (English, Female)",
+                    "title": "Sarah (female, american, soft)",
                     "value": "EXAVITQu4vr4xnSDxMaL"
                 },
                 {
-                    "title": "Antoni (English, Male)",
-                    "value": "ErXwobaYiN019PkySvjV"
+                    "title": "Laura (female, American, upbeat)",
+                    "value": "FGY2WhTYpPnrIDTdsKH5"
                 },
                 {
-                    "title": "Josh (English, Male)",
-                    "value": "TxGEqnHWrfWFTfGW9XjX"
+                    "title": "Charlie (male, Australian, natural)",
+                    "value": "IKne3meq5aSn9XLyUdCD"
+                },
+                {
+                    "title": "George (male, British, warm)",
+                    "value": "JBFqnCBsd6RMkjVDRZzb"
+                },
+                {
+                    "title": "Callum (male, Transatlantic, intense)",
+                    "value": "N2lVS1w4EtoT3dr4eOWO"
+                },
+                {
+                    "title": "River (non-binary, American, confident)",
+                    "value": "SAz9YHcvj6GT2YYXdXww"
+                },
+                {
+                    "title": "Liam (male, American, articulate)",
+                    "value": "TX3LPaxmHKxFdv7VOQHJ"
+                },
+                {
+                    "title": "Charlotte (female, Swedish, seductive)",
+                    "value": "XB0fDUnXU5powFXDhCwa"
+                },
+                {
+                    "title": "Alice (female, British, confident)",
+                    "value": "Xb7hH8MSUJpSbSDYk0k2"
+                },
+                {
+                    "title": "Matilda (female, American, friendly)",
+                    "value": "XrExE9yKIg1WjnnlVkGX"
+                },
+                {
+                    "title": "Will (male, American, friendly)",
+                    "value": "bIHbv24MWmeRgasZH58o"
+                },
+                {
+                    "title": "Jessica (female, American, expressive)",
+                    "value": "cgSgspJ2msm6clMCkdW9"
+                },
+                {
+                    "title": "Eric (male, American, friendly)",
+                    "value": "cjVigY5qzO86Huf0OWal"
+                },
+                {
+                    "title": "Chris (male, American, casual)",
+                    "value": "iP95p4xoKVk53GoZ742B"
+                },
+                {
+                    "title": "Brian (male, American, deep)",
+                    "value": "nPczCjzI2devNBz1zQrb"
+                },
+                {
+                    "title": "Daniel (male, British, authoritative)",
+                    "value": "onwK4e9ZLuTAKqWW03F9"
+                },
+                {
+                    "title": "Lily (female, British, warm)",
+                    "value": "pFZP5JQG7iQjIQuC4Bku"
+                },
+                {
+                    "title": "Bill (male, American, trustworthy)",
+                    "value": "pqHfZKP75CvOlQylNhV4"
+                },
+                {
+                    "title": "Koby (male, kanto, No description)",
+                    "value": "7V2labMjY8jnJlxDRW75"
                 }
             ],
             "desc": "Select the voice to use"
