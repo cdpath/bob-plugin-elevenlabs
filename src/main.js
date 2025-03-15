@@ -4,6 +4,56 @@ function supportLanguages() {
     return config.supportedLanguages.map(([standardLang]) => standardLang);
 }
 
+function pluginValidate(completion) {
+    (async () => {
+        try {
+            // Check if API key is provided
+            if (!$option.apiKey) {
+                completion({
+                    result: false,
+                    error: {
+                        type: "secretKey",
+                        message: "Please provide your ElevenLabs API key",
+                        troubleshootingLink: "https://elevenlabs.io/docs/api-reference/authentication"
+                    }
+                });
+                return;
+            }
+
+            // Make a test request to get voices (lightweight API call)
+            const resp = await $http.request({
+                method: "GET",
+                url: `${config.API_URL}/voices`,
+                header: {
+                    'xi-api-key': $option.apiKey
+                }
+            });
+
+            if (resp.response.statusCode === 200) {
+                completion({ result: true });
+            } else {
+                completion({
+                    result: false,
+                    error: {
+                        type: "secretKey",
+                        message: "Invalid API key",
+                        troubleshootingLink: "https://elevenlabs.io/docs/api-reference/authentication"
+                    }
+                });
+            }
+        } catch (err) {
+            completion({
+                result: false,
+                error: {
+                    type: "network",
+                    message: "Failed to validate API key: " + (err.message || "Unknown error"),
+                    troubleshootingLink: "https://elevenlabs.io/docs/api-reference/authentication"
+                }
+            });
+        }
+    })();
+}
+
 function tts(query, completion) {
     (async () => {
         try {
@@ -66,4 +116,5 @@ function tts(query, completion) {
 }
 
 exports.supportLanguages = supportLanguages;
-exports.tts = tts; 
+exports.tts = tts;
+exports.pluginValidate = pluginValidate; 
