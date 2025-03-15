@@ -21,7 +21,19 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Update Version Numbers
+      - name: Create Release Directory
+        run: |
+          mkdir -p release
+          cp -r src/* release/
+          cd release && zip -r ../bob-plugin-elevenlabs.bobplugin *
+
+      - name: Calculate SHA256
+        id: sha256
+        run: |
+          HASH=$(shasum -a 256 bob-plugin-elevenlabs.bobplugin | cut -d ' ' -f 1)
+          echo "hash=$HASH" >> $GITHUB_OUTPUT
+
+      - name: Update Version Numbers and SHA256
         run: |
           VERSION=${GITHUB_REF#refs/tags/v}
           # Try to determine the default branch
@@ -30,18 +42,15 @@ jobs:
           
           git fetch origin $DEFAULT_BRANCH
           git checkout $DEFAULT_BRANCH
-          node scripts/bump-version.js $VERSION "Release version $VERSION"
+          
+          # Update version and SHA256
+          node scripts/bump-version.js $VERSION "Release version $VERSION" "${{ steps.sha256.outputs.hash }}"
+          
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add src/info.json appcast.json
-          git commit -m "Bump version to $VERSION"
+          git commit -m "Bump version to $VERSION and update SHA256"
           git push origin $DEFAULT_BRANCH
-
-      - name: Create Release Directory
-        run: |
-          mkdir -p release
-          cp -r src/* release/
-          cd release && zip -r ../bob-plugin-elevenlabs.bobplugin *
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
