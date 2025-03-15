@@ -1,6 +1,6 @@
 {
     "identifier": "com.cdpath.bob-plugin-elevenlabs",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "category": "tts",
     "name": "ElevenLabs TTS",
     "summary": "ElevenLabs text-to-speech service with high-quality voices",
