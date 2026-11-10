@@ -35,7 +35,7 @@
                     "value": "eleven_v3"
                 },
                 {
-                    "title": "Eleven v3 Conversational (Realtime expressive TTS, ~280ms latency, 70+ languages)",
+                    "title": "Eleven v3 Conversational (Realtime expressive TTS, ~165ms latency, 70+ languages)",
                     "value": "eleven_v3_conversational"
                 },
                 {
