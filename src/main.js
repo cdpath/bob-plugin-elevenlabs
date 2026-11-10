@@ -77,7 +77,7 @@ function tts(query, completion) {
             // Make API request to ElevenLabs
             const resp = await $http.request({
                 method: "POST",
-                url: `${config.API_URL}/text-to-speech/${$option.voice}`,
+                url: `${config.API_URL}/text-to-speech/${($option.customVoiceId || "").trim() || $option.voice}`,
                 header: {
                     'xi-api-key': $option.apiKey,
                     'Content-Type': 'application/json'
@@ -91,6 +91,14 @@ function tts(query, completion) {
                     }
                 }
             });
+
+            if (resp.response.statusCode !== 200) {
+                const detail = resp.data && resp.data.detail;
+                throw {
+                    type: 'api',
+                    message: `ElevenLabs API error ${resp.response.statusCode}: ${(detail && detail.message) || JSON.stringify(detail || resp.data)}`
+                };
+            }
 
             // Convert response to base64
             let audioData = $data.fromData(resp.rawData);

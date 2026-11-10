@@ -23,32 +23,40 @@
             "defaultValue": "eleven_multilingual_v2",
             "menuValues": [
                 {
-                    "title": "Eleven Multilingual v2 (Our most life-like, emotionally rich mode in 29 languages. Best for voice overs, audiobooks, post-production, or any other content creation needs.)",
+                    "title": "Eleven v4 (Highest-quality expressive TTS, 90+ languages, 10,000-char limit)",
+                    "value": "eleven_v4"
+                },
+                {
+                    "title": "Eleven v4 Turbo (Real-time expressive TTS, ~100ms latency, 90+ languages)",
+                    "value": "eleven_v4_turbo"
+                },
+                {
+                    "title": "Eleven v3 (Expressive TTS with dramatic delivery, 70+ languages, 5,000-char limit)",
+                    "value": "eleven_v3"
+                },
+                {
+                    "title": "Eleven v3 Conversational (Realtime expressive TTS, ~280ms latency, 70+ languages)",
+                    "value": "eleven_v3_conversational"
+                },
+                {
+                    "title": "Eleven Multilingual v2 (Consistent, lifelike TTS in 29 languages, most stable for long-form)",
                     "value": "eleven_multilingual_v2"
                 },
                 {
-                    "title": "Eleven Flash v2.5 (Our ultra low latency model in 32 languages. Ideal for conversational use cases.)",
+                    "title": "Eleven Flash v2.5 (Fast, low-cost TTS, ~75ms latency, 32 languages)",
                     "value": "eleven_flash_v2_5"
                 },
                 {
-                    "title": "Eleven Turbo v2.5 (Our high quality, low latency model in 32 languages. Best for developer use cases where speed matters and you need non-English languages.)",
-                    "value": "eleven_turbo_v2_5"
-                },
-                {
-                    "title": "Eleven Turbo v2 (Our English-only, low latency model. Best for developer use cases where speed matters and you only need English. Performance is on par with Turbo v2.5.)",
-                    "value": "eleven_turbo_v2"
-                },
-                {
-                    "title": "Eleven Flash v2 (Our ultra low latency model in english. Ideal for conversational use cases.)",
+                    "title": "Eleven Flash v2 (Fast, low-latency TTS, ~75ms latency, English only)",
                     "value": "eleven_flash_v2"
                 },
                 {
-                    "title": "Eleven English v1 (Our first ever text to speech model. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).)",
-                    "value": "eleven_monolingual_v1"
+                    "title": "Eleven Turbo v2.5 (Deprecated, use Flash v2.5)",
+                    "value": "eleven_turbo_v2_5"
                 },
                 {
-                    "title": "Eleven Multilingual v1 (Our first Multilingual model, capability of generating speech in 10 languages. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).)",
-                    "value": "eleven_multilingual_v1"
+                    "title": "Eleven Turbo v2 (Deprecated, use Flash v2)",
+                    "value": "eleven_turbo_v2"
                 }
             ],
             "desc": "Select the TTS model to use"
@@ -145,6 +153,13 @@
                 }
             ],
             "desc": "Select the voice to use"
+        },
+        {
+            "identifier": "customVoiceId",
+            "type": "text",
+            "title": "Custom Voice ID",
+            "defaultValue": "",
+            "desc": "Optional. Any voice ID from your ElevenLabs Voice Library (cloned, designed, or shared voices). Overrides the Voice menu above when set."
         }
     ]
 }
