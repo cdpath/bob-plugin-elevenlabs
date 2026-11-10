@@ -44,14 +44,21 @@ async function main() {
         const infoPath = path.join(__dirname, '../src/info.json');
         const info = JSON.parse(fs.readFileSync(infoPath, 'utf8'));
 
-        // Update models
+        // Update models: use the API list, but preserve any manually-maintained
+        // or deprecated compatibility entries already in info.json that the API
+        // no longer returns, so existing user settings keep working.
         const modelOptions = info.options.find(opt => opt.identifier === 'model');
-        modelOptions.menuValues = models
+        const fetchedModels = models
             .filter(model => model.can_do_text_to_speech)
             .map(model => ({
                 title: `${model.name} (${model.description})`,
                 value: model.model_id
             }));
+        const fetchedIds = new Set(fetchedModels.map(model => model.value));
+        const preservedModels = (modelOptions.menuValues || []).filter(
+            model => !fetchedIds.has(model.value)
+        );
+        modelOptions.menuValues = [...fetchedModels, ...preservedModels];
 
         // Update voices
         const voiceOptions = info.options.find(opt => opt.identifier === 'voice');
